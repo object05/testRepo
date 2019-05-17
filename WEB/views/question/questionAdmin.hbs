@@ -1,0 +1,63 @@
+<div class="container">
+	<div class="row">
+		<div class="container">
+			<div class="row">
+				<div class=" col-lg-3">
+					<h2 style="color:lightgreen">{{title}}</h2><br>
+					<h5 style="color:Wheat">{{tags}}</h5><br>
+					<h5 style="color:Wheat" value="{{owner}}">{{owner}}</h5><br>
+					<input type="hidden" id="ownid" value="{{owner}}" >
+					<form action="/questions" method="get">
+						<button type="submit" class="btn btn-danger">Back</button>
+					</form>
+				</div>
+				<div class=" col-lg-9">
+					<h4 style="color:white; background-color:grey;padding:5px; max-height:200px;overflow-y:scroll;overflow-wrap: break-word;">{{description}}<h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12" id="chosen_section">
+				</div>
+			</div>
+		</div>
+		<div class="container" align="center">
+			<form action="/comments" method="post">
+				<textarea type="textarea" cols="70" rows="3" name="desc_comment" placeholder="description" required> </textarea>
+				<input type="hidden" name="owner_comment" value="{{owner}}" >
+				<input type="hidden" id="comtID" name="q_id" value="{{_id}}" >
+				<div class="tp">
+					<input type="submit" id="subm" class="btn btn-primary" value="Reply">
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class=" col-lg-12" style="max-height:93px">
+			<div class="container" id="comment_section" style="margin-top:10px"></div>
+		</div>
+	</div>
+</div>
+<script>
+	var commID = document.getElementById('comtID').value;
+	var owner = document.getElementById('ownid').value;
+	//console.log(owner);
+	//console.log("lol");
+	$.get( "/comments/"+owner+"/"+commID, function( data ) {
+		$( "#comment_section" ).html( data );
+	});
+	
+	$.get( "/comments/c/"+owner+"/"+commID, function( data ) {
+		$( "#chosen_section" ).html( data );
+	});
+	
+	$('#subm').on('click', function(e) {
+		//alert("asd");
+		$( "#comment_section" ).html("");
+		$.get( "/comments/"+commID, function( data ) {
+			$( "#comment_section" ).html( data );
+		});
+	});
+	
+</script>
+
+

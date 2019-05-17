@@ -1,0 +1,18 @@
+	<form action="/questions/user/{{username}}" method="get">
+			<button type="submit" class="btn btn-danger">back</button>
+	</form>
+
+<h1 style="color:white">Add a question</h1>
+<div class="container">
+<form action="/questions" method="post">
+
+	<input type="text" name="title" placeholder="title" required><br>
+	<textarea type="textarea" rows="4" cols="70" name="description" placeholder="description" required></textarea><br>
+	<input type="text" name="tags" placeholder="tags" required>
+	<input type="hidden" name="owner" value="" placeholder="tags" required>
+	<div class="tp">
+		<input type="submit" value="Add" class="btn btn-primary">
+	</div>
+
+</form>
+</div>

@@ -1,0 +1,54 @@
+
+<ul class="nav" style="position:absolute;left:0px">
+  <li class="nav-item">
+    <a class="nav-link" href="/users/index">Dashboard</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/users/profile">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/users/market">Market</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/users/send">Send</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="/users/receive">Receive</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link disabled" href="#">Log out</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Forums</a>
+  </li>
+</ul>
+
+
+
+
+<div class="container">
+	<h1 style="color:lightBlue">Profil uporabnika</h1>
+	<h2 style="color:white">Ime: </h2>
+	<h4 style="color:lightBlue">{{username}}</h4>
+	<h2 style="color:white">Mail: </h2>
+	<h4 style="color:lightBlue">{{email}}</h4>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-1">
+			<form action="/questions/user/{{username}}" method="get">
+				<button type="submit" class="btn btn-default">My posts</button>
+			</form>
+			</div>
+			<div class="col-md-2">
+			<form action="/comments/user" method="post">
+				<button type="submit" class="btn btn-default">My comments</button>
+			</form>
+			</div>
+			<div class="col-md-1">
+			<form action="/questions/dodaj" method="get">
+				<button type="submit" class="btn btn-success">Dodaj</button>
+			</form>
+			</div>
+		</div>
+	</div>
+</div>
